@@ -1,6 +1,61 @@
+<div class="home-container">
 
-<h2>greetings</h2>
-<p>{{message}}</p>
+  <!-- Hero Banner -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Welcome to ShambaSmart</h1>
+    <p>Your smart companion for modern farming</p>
+    <button routerLink="/shop">Shop Inputs</button>
+    <button routerLink="/advice">Get Extension Advice</button>
+  </div>
+</section>
 
-<app-greetings [message]="homeMessage()"/>
-<input type="text" (keyup)="keyUpHandler()">
+<!-- Services Section -->
+<section class="services">
+  <h2>Our Services</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Farm Inputs</h3>
+      <p>Buy seeds, fertilizers, chemicals & more.</p>
+      <a routerLink="/shop">Explore Inputs</a>
+    </div>
+    <div class="card">
+      <h3>Farm Queries</h3>
+      <p>Ask questions and get answers from experts.</p>
+      <a routerLink="/queries">Ask Now</a>
+    </div>
+    <div class="card">
+      <h3>Extension Advice</h3>
+      <p>Get expert agricultural support tailored to your region.</p>
+      <a routerLink="/advice">Request Help</a>
+    </div>
+    <div class="card">
+      <h3>Market Prices</h3>
+      <p>Stay updated with the latest market prices for your crops.</p>
+      <a routerLink="/market-prices">View Prices</a>
+      </div>
+    <div class="card">
+      <h3>Community forums</h3>
+      <p>Connect with other farmers, share tips and experiences.</p>
+      <a routerLink="/forums">Join Forums</a>
+      </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <h2>What Farmers Say</h2>
+  <div class="testimony">
+    <blockquote>“ShambaSmart helped me double my harvest.”</blockquote>
+    <p>- Mary, Nakuru</p>
+  </div>
+</section>
+
+<!-- Footer CTA -->
+<section class="call-to-action">
+  <h2>Join thousands of smart farmers</h2>
+  <button routerLink="/signup">Get Started</button>
+</section>
+
+
+</div>

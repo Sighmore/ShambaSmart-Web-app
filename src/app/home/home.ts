@@ -1,9 +1,8 @@
 import { Component, signal } from '@angular/core';
-import { Greetings } from '../components/greetings/greetings';
 
 @Component({
   selector: 'app-home',
-  imports: [Greetings],
+  imports: [],
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })

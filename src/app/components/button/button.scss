@@ -1,0 +1,26 @@
+.ss-button {
+  background-color: #2e7d32; // deep farming green
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+
+  &:hover {
+    background-color: #1b5e20;
+    transform: scale(1.03);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  &:focus {
+    outline: 3px solid #81c784; // subtle focus ring
+    outline-offset: 2px;
+  }
+}
