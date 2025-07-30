@@ -1,9 +1,9 @@
 import { Component, signal } from '@angular/core';
-import { Button } from '../button/button';
 
 @Component({
   selector: 'app-footer',
-  imports: [Button],
+  imports: [],
+  standalone: true,
   templateUrl: './footer.html',
   styleUrl: './footer.scss'
 })

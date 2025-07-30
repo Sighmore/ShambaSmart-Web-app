@@ -1,16 +1,28 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule, NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule, NgFor],
   templateUrl: './home.html',
-  styleUrl: './home.scss'
+  styleUrls: ['./home.scss']
 })
-export class Home {
- message = signal("hello Simon");
+export class Home implements OnInit {
 
- keyUpHandler(){
-  console.log("user typed something")
- }
+  testimonials = [
+    { quote: 'ShambaSmart helped me double my harvest.', author: 'Mary, Nakuru' },
+    { quote: 'I found affordable farm inputs in just minutes.', author: 'James, Eldoret' },
+    { quote: 'Their extension advice saved my maize crop.', author: 'Amina, Kisii' }
+  ];
+
+  activeTestimonial = 0;
+
+  ngOnInit(): void {
+    setInterval(() => {
+      this.activeTestimonial = (this.activeTestimonial + 1) % this.testimonials.length;
+    }, 4000); // change testimonial every 4 seconds
+  }
 
 }
+

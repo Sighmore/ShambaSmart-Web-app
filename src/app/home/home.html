@@ -45,11 +45,14 @@
 <!-- Testimonials -->
 <section class="testimonials">
   <h2>What Farmers Say</h2>
-  <div class="testimony">
-    <blockquote>“ShambaSmart helped me double my harvest.”</blockquote>
-    <p>- Mary, Nakuru</p>
+  <div class="testimonial-carousel">
+    <div class="testimonial-slide" *ngFor="let testimonial of testimonials; let i = index" [class.active]="i === activeTestimonial">
+      <blockquote>“{{ testimonial.quote }}”</blockquote>
+      <p>- {{ testimonial.author }}</p>
+    </div>
   </div>
 </section>
+
 
 <!-- Footer CTA -->
 <section class="call-to-action">
