@@ -1,0 +1,30 @@
+<div class="market-prices-page">
+  <h2>Market Prices</h2>
+  <p class="intro">Up-to-date prices of key farm produce across Kenya</p>
+
+  <div class="market-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Unit</th>
+          <th>Location</th>
+          <th>Price (KES)</th>
+          <th>Last Updated</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of marketPrices">
+          <td>{{ item.product }}</td>
+          <td>{{ item.unit }}</td>
+          <td>{{ item.location }}</td>
+          <td>{{ item.price | number:'1.0-2' }}</td>
+          <td>{{ item.updatedAt | date:'shortDate' }}</td>
+            <td>{{ item.updatedAt | date:'shortTime' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

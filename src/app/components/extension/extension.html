@@ -1,1 +1,15 @@
-<p>extension works!</p>
+<div class="extension-advice-page">
+  <h2>Extension Advice</h2>
+  <p class="intro">
+    Timely tips and expert guidance to help you improve your yields and farm practices.
+  </p>
+
+  <div class="advice-list">
+    <div class="advice-card" *ngFor="let advice of adviceList">
+      <h3>{{ advice.title }}</h3>
+      <p class="meta">Crop: {{ advice.crop }} | Region: {{ advice.region }}</p>
+      <p class="summary">{{ advice.summary }}</p>
+      <p class="timestamp">Updated: {{ advice.updatedAt | date:'mediumDate' }}</p>
+    </div>
+  </div>
+</div>

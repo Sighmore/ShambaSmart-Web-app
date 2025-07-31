@@ -1,1 +1,22 @@
-<p>shop works!</p>
+<div class="shop-container">
+  <h2>Farm Inputs Shop</h2>
+
+  <input type="text" placeholder="Search products..." [(ngModel)]="searchTerm" (input)="filterItems()" />
+
+  <div class="tabs">
+    <button *ngFor="let category of ['Seeds', 'Fertilizers', 'Chemicals']"
+            (click)="setCategory(category)"
+            [class.active]="activeCategory === category">
+      {{ category }}
+    </button>
+  </div>
+
+  <div class="product-grid">
+    <div class="product-card" *ngFor="let item of filteredInputs">
+      <img [src]="item.image" [alt]="item.name" />
+      <h4>{{ item.name }}</h4>
+      <p>Ksh {{ item.price }}</p>
+      <button>Add to Cart</button>
+    </div>
+  </div>
+</div>

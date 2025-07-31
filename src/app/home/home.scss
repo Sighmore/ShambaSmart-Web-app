@@ -46,6 +46,12 @@
       width: 250px;
       text-align: center;
     }
+
+    //remove link styling
+    .card a {
+      text-decoration: none;
+      color: inherit;
+    }
   }
 }
 
@@ -53,6 +59,9 @@
   background: #fdfdfd;
   padding: 2rem 1rem;
   text-align: center;
+  //round the corners top
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
 .call-to-action {
@@ -60,7 +69,6 @@
   color: white;
   text-align: center;
   padding: 3rem 1rem;
-  border-radius: 8px;
 }
 
 // style call to action button

@@ -1,1 +1,33 @@
-<p>sign-up works!</p>
+<div class="signup-container">
+  <h2>Create Your ShambaSmart Account</h2>
+
+  <form (ngSubmit)="onSubmit()" #signupForm="ngForm">
+    <input
+      type="text"
+      placeholder="Full Name"
+      name="fullName"
+      [(ngModel)]="user.fullName"
+      required
+    />
+
+    <input
+      type="email"
+      placeholder="Email"
+      name="email"
+      [(ngModel)]="user.email"
+      required
+    />
+
+    <input
+      type="password"
+      placeholder="Password"
+      name="password"
+      [(ngModel)]="user.password"
+      required
+    />
+
+    <button type="submit" [disabled]="!signupForm.form.valid">Sign Up</button>
+  </form>
+
+  <p class="redirect">Already have an account? <a routerLink="/signin">Sign In</a></p>
+</div>
