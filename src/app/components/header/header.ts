@@ -1,28 +1,34 @@
 import { CommonModule } from '@angular/common';
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterModule,CommonModule],
+  imports: [RouterModule, CommonModule],
   templateUrl: './header.html',
-  styleUrl: './header.scss'
+  styleUrls: ['./header.scss'] // plural: styleUrls for array
 })
 export class Header {
   isDropdownOpen = false;
+  isMenuOpen = false;
 
   toggleDropdown(event: MouseEvent) {
-    event.stopPropagation(); // prevent click from bubbling to document
+    event.stopPropagation(); // prevent bubbling up
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
+
   @HostListener('document:click')
-  closeDropdown() {
+  closeAll() {
     this.isDropdownOpen = false;
+    this.isMenuOpen = false;
   }
 
   preventClose(event: MouseEvent) {
-    event.stopPropagation(); // keep dropdown open when clicking inside
+    event.stopPropagation(); // allow interactions inside dropdown
   }
 }
