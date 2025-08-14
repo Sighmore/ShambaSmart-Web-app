@@ -20,4 +20,6 @@ export class SignUp {
     console.log('User Registered:', this.user);
     // Implement backend API call or router navigation here
   }
+
+ 
 }

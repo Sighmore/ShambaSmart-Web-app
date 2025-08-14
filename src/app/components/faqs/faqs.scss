@@ -1,0 +1,59 @@
+.intro {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 2rem auto 1.5rem auto;
+  color: #1e293b;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+/* Center the spinner horizontally and vertically with padding */
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.comments-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 3rem auto 0 auto; // Center horizontally with auto margins
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+   gap: 2rem 3rem;
+  padding: 0 1rem;
+  justify-items: center;
+}
+
+.comment {
+  background: #fff;
+  padding: 2rem 2rem 1.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(30, 41, 59, 0.10), 0 1.5px 6px rgba(30, 41, 59, 0.06);
+  margin-bottom: 0;
+  width: 100%;
+  max-width: 400px;
+  transition: box-shadow 0.2s;
+  border: 1px solid #e5e7eb;
+
+  &:hover {
+    box-shadow: 0 8px 32px rgba(30, 41, 59, 0.16), 0 2px 8px rgba(30, 41, 59, 0.10);
+    border-color: #cbd5e1;
+  }
+}
+
+@media (max-width: 600px) {
+  .comments-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  .comment {
+    padding: 1.25rem 1rem;
+    max-width: 100%;
+  }
+}
