@@ -10,6 +10,8 @@ import { isDevMode } from '@angular/core';
 import { CommentsEffects } from './app/ngrx/comments/comments.effects';
 import { commentsReducer } from './app/ngrx/comments/comments.reducer';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { cartReducer } from './app/ngrx/cart/cart.reducer';
+import { CartEffects } from './app/ngrx/cart/cart.effects';
 
 bootstrapApplication(App, {
   providers: [
@@ -19,10 +21,13 @@ bootstrapApplication(App, {
     provideHttpClient(withInterceptorsFromDi()),
 
     // Store always first
-    provideStore({ comments: commentsReducer }),
+    provideStore({ 
+      comments: commentsReducer,
+      cart: cartReducer
+    }),
 
     // Effects — pass array here (this will also provide Actions)
-    provideEffects([CommentsEffects]),
+    provideEffects([CommentsEffects, CartEffects]),
 
     // DevTools
     provideStoreDevtools({

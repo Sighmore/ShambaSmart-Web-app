@@ -16,7 +16,7 @@
       <img [src]="item.image" [alt]="item.name" />
       <h4>{{ item.name }}</h4>
       <p>Ksh {{ item.price }}</p>
-      <button>Add to Cart</button>
+      <button (click)="addToCart(item)">Add to Cart</button>
     </div>
   </div>
 </div>

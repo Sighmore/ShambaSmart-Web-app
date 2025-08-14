@@ -1,15 +1,29 @@
 import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Store } from '@ngrx/store';
+import {
+  selectCartCount,
+  selectCartTotal,
+} from '../../ngrx/cart/cart.selector';
 
 @Component({
   selector: 'app-header',
   standalone: true,
   imports: [RouterModule, CommonModule],
   templateUrl: './header.html',
-  styleUrls: ['./header.scss'] // plural: styleUrls for array
+  styleUrls: ['./header.scss'], // plural: styleUrls for array
 })
 export class Header {
+  cartCount$: Observable<number>;
+  cartTotal$: Observable<number>;
+
+  constructor(private readonly store: Store) {
+    this.cartCount$ = this.store.select(selectCartCount);
+    this.cartTotal$ = this.store.select(selectCartTotal);
+  }
+
   isDropdownOpen = false;
   isMenuOpen = false;
 
@@ -31,4 +45,7 @@ export class Header {
   preventClose(event: MouseEvent) {
     event.stopPropagation(); // allow interactions inside dropdown
   }
+
+
+
 }
