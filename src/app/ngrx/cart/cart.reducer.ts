@@ -11,11 +11,38 @@ export const initialState: CartState = {
 export const cartReducer = createReducer(
   initialState,
 
-  on(addItem, (state, { item }) => ({
+ on(addItem, (state, { item }) => {
+  const existingItem = state.items.find(i => i.id === item.id);
+
+  let updatedItems;
+  if (existingItem) {
+    // If item already exists → update quantity & price
+    updatedItems = state.items.map(i =>
+      i.id === item.id
+        ? {
+            ...i,
+            details: i.details.map(d => ({
+              ...d,
+              quantity: d.quantity + item.details[0].quantity, // add new qty
+            })),
+            price: i.price + item.price, // add new price
+          }
+        : i
+    );
+  } else {
+    // If item is new → just add it
+    updatedItems = [...state.items, item];
+  }
+
+  const total = updatedItems.reduce((sum, i) => sum + i.price, 0);
+
+  return {
     ...state,
-    items: [...state.items, item],
-    total: state.items.reduce((sum, i) => sum + i.price, 0) + item.price,
-  })),
+    items: updatedItems,
+    total,
+  };
+}),
+
 
   on(removeItem, (state, { itemId }) => {
     const filteredItems = state.items.filter(i => i.id !== itemId);
