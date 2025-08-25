@@ -1,0 +1,123 @@
+.checkout-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.checkout-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.checkout-summary {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+
+  h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+    color: #444;
+  }
+
+  .amount {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #e67e22;
+  }
+}
+
+.payment-methods {
+  h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+
+    .tab {
+      flex: 1;
+      padding: 0.7rem;
+      margin: 0 0.3rem;
+      background: #f1f1f1;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+
+      &.active {
+        background: #e67e22;
+        color: white;
+      }
+
+      &:hover {
+        background: #ddd;
+      }
+    }
+  }
+
+  .payment-box {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      margin-top: 0.7rem;
+      font-weight: 500;
+      color: #555;
+    }
+
+    input {
+      padding: 0.7rem;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      margin-top: 0.3rem;
+      font-size: 0.95rem;
+      outline: none;
+
+      &:focus {
+        border-color: #e67e22;
+      }
+    }
+
+    .pay-btn {
+      margin-top: 1.5rem;
+      padding: 0.9rem;
+      background: #0a1368bb;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s ease;
+
+      &:hover {
+        background: #cf711f;
+      }
+
+      &.paypal {
+        background: #0070ba;
+        &:hover {
+          background: #005c96;
+        }
+      }
+
+      &.mpesa {
+        background: #25d366;
+        &:hover {
+          background: #1aa64a;
+        }
+      }
+    }
+  }
+}

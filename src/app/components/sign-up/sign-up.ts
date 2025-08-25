@@ -1,3 +1,4 @@
+import { SignupService } from './../../services/auth/signup/signup';
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -10,6 +11,9 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./sign-up.scss']
 })
 export class SignUp {
+
+constructor(private readonly signupService: SignupService){}
+
   user = {
     fullName: '',
     email: '',
@@ -17,7 +21,11 @@ export class SignUp {
   };
 
   onSubmit() {
+
+    this.signupService.createAccount(this.user)
     console.log('User Registered:', this.user);
+
+
     // Implement backend API call or router navigation here
   }
 

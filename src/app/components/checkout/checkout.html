@@ -1,0 +1,63 @@
+<div class="checkout-container">
+  <h2 class="checkout-title">Checkout</h2>
+
+  <div class="checkout-summary">
+    <h3>Order Summary</h3>
+    <p>Total: <span class="amount">KES {{ cartTotal$ |async}}</span></p>
+  </div>
+
+  <div class="payment-methods">
+    <h3>Select Payment Method</h3>
+
+    <div class="tabs">
+      <button 
+        class="tab" 
+        [class.active]="selectedTab === 'stripe'" 
+        (click)="selectedTab = 'stripe'">
+        💳 Card (Stripe)
+      </button>
+
+      <button 
+        class="tab" 
+        [class.active]="selectedTab === 'paypal'" 
+        (click)="selectedTab = 'paypal'">
+        🅿️ PayPal
+      </button>
+
+      <button 
+        class="tab" 
+        [class.active]="selectedTab === 'mpesa'" 
+        (click)="selectedTab = 'mpesa'">
+        📱 M-Pesa
+      </button>
+    </div>
+
+    <!-- Stripe -->
+    <div *ngIf="selectedTab === 'stripe'" class="payment-box">
+      <label for="cardNumber">Card Number</label>
+      <input type="text" id="cardNumber" placeholder="4242 4242 4242 4242" />
+
+      <label for="expiry">Expiry Date</label>
+      <input type="text" id="expiry" placeholder="MM/YY" />
+
+      <label for="cvv">CVV</label>
+      <input type="password" id="cvv" placeholder="***" />
+
+      <button class="pay-btn" (click)="payWithStripe()">Pay with Stripe</button>
+    </div>
+
+    <!-- PayPal -->
+    <div *ngIf="selectedTab === 'paypal'" class="payment-box">
+      <p>You will be redirected to PayPal to complete your purchase securely.</p>
+      <button class="pay-btn paypal" (click)="payWithPaypal()">Pay with PayPal</button>
+    </div>
+
+    <!-- M-Pesa -->
+    <div *ngIf="selectedTab === 'mpesa'" class="payment-box">
+      <label for="mpesaPhone">M-Pesa Phone Number</label>
+      <input type="text" id="mpesaPhone" placeholder="2547XXXXXXXX" />
+
+      <button class="pay-btn mpesa" (click)="payWithMpesa()">Pay with M-Pesa</button>
+    </div>
+  </div>
+</div>

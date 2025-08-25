@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { clearCart } from './../../../ngrx/cart/cart.actions';
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -8,7 +9,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.html',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   styleUrls: ['./cart.scss']
 })
 export class CartComponent {
@@ -19,16 +20,11 @@ export class CartComponent {
     this.cartTotal$ = this.store.select(selectCartTotal);
   }
 
-  checkout() {
-    // Implement checkout logic here
-    console.log('Checkout clicked');
-  }
+
 
   // Dispatch clearCart action from the cart actions
     // Use a dialog-style popup instead of confirm
   clearCart() {
-    // Dispatch clearCart action from the cart actions
-    // Use a dialog-style popup instead of confirm
     const dialog = document.createElement('dialog');
     dialog.innerHTML = `
       <form method="dialog" style="margin:0;">

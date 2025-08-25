@@ -11,6 +11,7 @@ import { FarmerQueries } from './components/farmer-queries/farmer-queries';
 import { About } from './components/about/about';
 import { Faqs } from './components/faqs/faqs';
 import { CartComponent } from './components/cart/cart/cart';
+import { Checkout } from './components/checkout/checkout';
 
 export const routes: Routes = [
   { path: '', component: Home },
@@ -23,6 +24,7 @@ export const routes: Routes = [
   { path: 'farmer_queries', component: FarmerQueries },
   { path: 'about', component: About },
   { path: 'faqs',component: Faqs },
+  { path: 'checkout',component: Checkout },
   { path: 'cart',component: CartComponent },
   { path: '**', redirectTo: '' }
 ];
