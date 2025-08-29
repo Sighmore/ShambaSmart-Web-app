@@ -79,6 +79,20 @@ Kenyan farmers face **counterfeit inputs**, fragmented advice, and unreliable pr
 
 ## Secreenshots
 
+<img width="1348" height="639" alt="Screenshot Capture - 2025-08-29 - 10-17-31" src="https://github.com/user-attachments/assets/bed743cc-ddda-404f-865f-9a9ca5ee6a7f" />
+<img width="1339" height="636" alt="Screenshot Capture - 2025-08-29 - 10-17-50" src="https://github.com/user-attachments/assets/0d6035ac-de43-417a-96b0-9fca6214a0a7" />
+<img width="1345" height="641" alt="Screenshot Capture - 2025-08-29 - 10-18-08" src="https://github.com/user-attachments/assets/4e6b6213-be1b-4a75-a22f-72ccf667cd27" />
+<img width="1315" height="639" alt="Screenshot Capture - 2025-08-29 - 10-18-16" src="https://github.com/user-attachments/assets/70f963b4-f5fe-4398-b2da-70870b0b4859" />
+<img width="1339" height="641" alt="Screenshot Capture - 2025-08-29 - 10-18-37" src="https://github.com/user-attachments/assets/4dd033ec-9570-4268-9bc1-04b0a328bb7c" />
+<img width="1331" height="642" alt="Screenshot Capture - 2025-08-29 - 10-19-55" src="https://github.com/user-attachments/assets/b5422c72-8c5e-4055-be8b-6a0652217b11" />
+<img width="1327" height="530" alt="Screenshot Capture - 2025-08-29 - 10-19-43" src="https://github.com/user-attachments/assets/bc450efc-82d8-468c-9117-f706b502edb4" />
+<img width="615" height="467" alt="Screenshot Capture - 2025-08-29 - 10-19-06" src="https://github.com/user-attachments/assets/8bc9f29d-2318-4c0d-bc7b-7d6f7114121d" />
+<img width="582" height="505" alt="Screenshot Capture - 2025-08-29 - 10-19-02" src="https://github.com/user-attachments/assets/50b25920-87c9-47eb-98fd-a7358abc3dca" />
+<img width="586" height="623" alt="Screenshot Capture - 2025-08-29 - 10-18-56" src="https://github.com/user-attachments/assets/5972a593-4640-4278-a1ff-1c7540a918a4" />
+<img width="1344" height="638" alt="Screenshot Capture - 2025-08-29 - 10-18-47" src="https://github.com/user-attachments/assets/efc113d9-7a33-4a46-b976-2bb57e66f7d5" />
+<img width="1321" height="637" alt="Screenshot Capture - 2025-08-29 - 10-18-25" src="https://github.com/user-attachments/assets/846cc6e8-da1d-4dfb-a80d-8fc1a0649d11" />
+
+
 ## Prerequisites
 
 * Node.js 18+
