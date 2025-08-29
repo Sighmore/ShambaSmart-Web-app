@@ -1,175 +1,144 @@
-/* Overall Header */
+/* Header Container */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: rgba(8, 134, 61, 0.95);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-  font-family: 'Segoe UI', sans-serif;
-  color: white;
-  position: relative;
-  z-index: 100;
+  background-color: rgba(8, 134, 61, 0.95); /* same green tone as dropdown */
+  padding: 0.8rem 1.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1100;
 }
 
-/* Logo Section */
-.logo {
-  display: flex;
-  align-items: center;
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: white;
-  text-decoration: none;
-}
-
+/* Logo */
 .logo img {
-  height: 40px;
-  margin-right: 0.5rem;
+  height: 42px;
+  cursor: pointer;
 }
 
-/* Navigation Links */
+/* Nav Links */
 .nav-links {
   display: flex;
   gap: 1.5rem;
+
+  a, .dropdown-btn {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #d4f3df; /* lighter green */
+    }
+  }
+
+  .nav-item {
+    position: relative; /* important for dropdown alignment */
+  }
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: #cfead1;
-}
-
-/* Auth Dropdown */
-.auth-dropdown {
-  position: relative;
-}
-
-.dropdown-btn {
-  background: none;
-  border: none;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
-  font-size: 1rem;
-  padding: 0.5rem;
-  transition: opacity 0.2s ease;
-}
-
-.dropdown-btn:hover {
-  opacity: 0.9;
-}
-
+/* Dropdown Menu */
 .dropdown-content {
   position: absolute;
-  right: 0;
   top: 100%;
-  background-color: rgba(8, 134, 61, 1);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  padding: 0.5rem 0;
-  border-radius: 4px;
-  min-width: 120px;
+  left: 0;
+  background-color: rgba(8, 134, 61, 0.98);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  padding: 0.6rem 0;
+  border-radius: 8px;
+  min-width: 160px;
   margin-top: 8px;
-  z-index: 1000;
+  z-index: 1200;
+  animation: dropdownFade 0.25s ease forwards;
+
+  a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
 }
 
-.dropdown-content a {
-  display: block;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 500;
-  transition: background-color 0.2s ease;
+/* Cart + Auth Section */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+
+  .cart {
+    color: #fff;
+    font-size: 18px;
+    position: relative;
+
+    .cart-count {
+      position: absolute;
+      top: -6px;
+      right: -10px;
+      background: #ff4d4d;
+      color: #fff;
+      border-radius: 50%;
+      font-size: 11px;
+      padding: 2px 5px;
+      font-weight: bold;
+    }
+  }
+
+  .auth-dropdown {
+    position: relative;
+
+    .dropdown-btn {
+      background: none;
+      border: none;
+      color: #fff;
+      font-weight: 500;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  }
 }
 
-.dropdown-content a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Hamburger Button */
+/* Mobile Menu (hamburger) */
 .hamburger {
   display: none;
   background: none;
   border: none;
-  font-size: 2rem;
   color: white;
+  font-size: 22px;
   cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
 }
 
-/* Responsive Styles */
+/* Mobile Nav Links */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
     flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+    background-color: rgba(8, 134, 61, 0.97);
     position: absolute;
-    top: 100%;
+    top: 64px;
     left: 0;
     right: 0;
-    background-color: rgba(8, 134, 61, 1);
-    padding: 1rem 0;
-    z-index: 999;
-  }
+    padding: 1rem;
 
-  .nav-links.active {
-    display: flex;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .auth-dropdown {
-    display: none;
+    &.active {
+      display: flex;
+    }
   }
 }
 
-/* Header right section: cart + auth */
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* Cart Icon */
-.cart {
-  position: relative;
-  cursor: pointer;
-  font-size: 1.5rem;
-  text-decoration: none;
-  border: none;
-  background: none;
-}
-
-.cart-icon {
-  color: white;
-  text-decoration: none;
-  border: none;
-  background: none;
-}
-
-.cart-count {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background-color: rgb(68, 141, 209);
-  color: white;
-  font-size: 0.75rem;
-  font-weight: bold;
-  border-radius: 50%;
-  padding: 2px 6px;
-}
-
-/* Responsive: hide auth dropdown on mobile, keep cart */
-@media (max-width: 768px) {
-  .auth-dropdown {
-    display: none;
-  }
+/* Smooth fade animation */
+@keyframes dropdownFade {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
 }

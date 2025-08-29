@@ -14,7 +14,17 @@
   <!-- Navigation Links -->
   <nav class="nav-links" [ngClass]="{ 'active': isMenuOpen }">
     <a routerLink="/shop" (click)="isMenuOpen = false">Shop</a>
-    <a routerLink="/extension" (click)="isMenuOpen = false">Extension</a>
+
+    <!-- Shamba AI dropdown -->
+    <div class="nav-item dropdown" (click)="toggleExtensionDropdown($event)">
+      <span class="dropdown-btn">Shamba AI ▼</span>
+      <div class="dropdown-content" *ngIf="isExtensionDropdownOpen">
+        <a routerLink="/cropDoctor" (click)="isMenuOpen = false">AI Crop Doctor</a>
+        <a routerLink="/pricePredictor" (click)="isMenuOpen = false">AI Price Predictor</a>
+        <a routerLink="/smartInputAdvisor" (click)="isMenuOpen = false">Smart Input Advisor</a>
+      </div>
+    </div>
+
     <a routerLink="/prices" (click)="isMenuOpen = false">Prices</a>
     <a routerLink="/forums" (click)="isMenuOpen = false">Forums</a>
     <a routerLink="/farmer_queries" (click)="isMenuOpen = false">Queries</a>
@@ -26,8 +36,8 @@
     <!-- Cart -->
     <div class="cart">
       <a routerLink="/cart">
-      <span class="cart-icon">🛒</span>
-      <span class="cart-count" *ngIf="(cartCount$ | async) as count">{{ count }}</span>
+        <span class="cart-icon">🛒</span>
+        <span class="cart-count" *ngIf="(cartCount$ | async) as count">{{ count }}</span>
       </a>
     </div>
 

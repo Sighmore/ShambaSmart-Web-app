@@ -1,0 +1,39 @@
+<!-- Price Predictor Component -->
+<div class="price-predictor">
+  <h2>Crop Price Predictor</h2>
+
+  <div class="form">
+    <label>
+      Crop:
+      <select [(ngModel)]="selectedCrop">
+        <option value="">-- Select Crop --</option>
+        <option *ngFor="let c of crops" [value]="c">{{ c }}</option>
+      </select>
+    </label>
+
+    <label>
+      Location:
+      <select [(ngModel)]="selectedLocation">
+        <option value="">-- Select Location --</option>
+        <option *ngFor="let l of locations" [value]="l">{{ l }}</option>
+      </select>
+    </label>
+
+    <button class="primary" (click)="predictPrice()" [disabled]="loading">Predict</button>
+  </div>
+
+  <div class="status" *ngIf="loading">🔄 Loading predictions...</div>
+  <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+  <div *ngIf="currentPrice !== null && !loading" class="result-card">
+    <h3>{{ selectedCrop }} - {{ selectedLocation }}</h3>
+    <p><strong>Current Price:</strong> KES {{ currentPrice }}</p>
+
+    <h4>Predicted Prices (next 7 days)</h4>
+    <ul>
+      <li *ngFor="let p of predictedPrices">
+        {{ p.date | date:'shortDate' }} → KES {{ p.price }}
+      </li>
+    </ul>
+  </div>
+</div>

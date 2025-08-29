@@ -1,0 +1,55 @@
+<!-- Smart Input Advisor Component -->
+<div class="advisor">
+  <h2>Smart Input Advisor</h2>
+
+  <form (ngSubmit)="getRecommendations()" #advisorForm="ngForm" class="advisor-form">
+    <!-- Crop Selector -->
+    <label>
+      Crop
+      <select [(ngModel)]="selectedCrop" name="crop" required>
+        <option value="" disabled selected>Select crop</option>
+        <option *ngFor="let crop of crops" [value]="crop">{{ crop }}</option>
+      </select>
+    </label>
+
+    <!-- Acreage Input -->
+    <label>
+      Acreage (acres)
+      <input type="number" [(ngModel)]="acreage" name="acreage" min="0.1" step="0.1" required />
+    </label>
+
+    <!-- Region Selector -->
+    <label>
+      Region
+      <select [(ngModel)]="selectedRegion" name="region" required>
+        <option value="" disabled selected>Select region</option>
+        <option *ngFor="let region of regions" [value]="region">{{ region }}</option>
+      </select>
+    </label>
+
+    <!-- Season Selector -->
+    <label>
+      Season
+      <select [(ngModel)]="selectedSeason" name="season" required>
+        <option value="" disabled selected>Select season</option>
+        <option *ngFor="let season of seasons" [value]="season">{{ season }}</option>
+      </select>
+    </label>
+
+    <button type="submit" class="primary" [disabled]="!advisorForm.form.valid">Get Advice</button>
+  </form>
+
+  <!-- Recommendations Result -->
+  <div *ngIf="recommendation" class="result-card">
+    <h3>Recommendations</h3>
+    <p><strong>Crop:</strong> {{ recommendation.crop }}</p>
+    <p><strong>Fertilizer:</strong> {{ recommendation.fertilizer }}</p>
+    <p><strong>Pesticide:</strong> {{ recommendation.pesticide }}</p>
+    <p><strong>Estimated Cost:</strong> KES {{ recommendation.cost | number:'1.0-0' }}</p>
+
+    <div class="action-row">
+      <button class="primary" (click)="findNearByAgrovet()">Find Agrovet Nearby</button>
+      <button class="secondary" (click)="buyInputs()">Buy Inputs</button>
+    </div>
+  </div>
+</div>

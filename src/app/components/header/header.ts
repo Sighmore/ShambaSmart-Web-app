@@ -13,22 +13,24 @@ import {
   standalone: true,
   imports: [RouterModule, CommonModule],
   templateUrl: './header.html',
-  styleUrls: ['./header.scss'], // plural: styleUrls for array
+  styleUrls: ['./header.scss'],
 })
 export class Header {
   cartCount$: Observable<number>;
   cartTotal$: Observable<number>;
+
+  // dropdown states
+  isDropdownOpen = false; // auth dropdown
+  isMenuOpen = false; // mobile menu
+  isExtensionDropdownOpen = false; // extension advice/AI dropdown
 
   constructor(private readonly store: Store) {
     this.cartCount$ = this.store.select(selectCartCount);
     this.cartTotal$ = this.store.select(selectCartTotal);
   }
 
-  isDropdownOpen = false;
-  isMenuOpen = false;
-
   toggleDropdown(event: MouseEvent) {
-    event.stopPropagation(); // prevent bubbling up
+    event.stopPropagation();
     this.isDropdownOpen = !this.isDropdownOpen;
   }
 
@@ -36,16 +38,19 @@ export class Header {
     this.isMenuOpen = !this.isMenuOpen;
   }
 
+  toggleExtensionDropdown(event: MouseEvent) {
+    event.stopPropagation();
+    this.isExtensionDropdownOpen = !this.isExtensionDropdownOpen;
+  }
+
   @HostListener('document:click')
   closeAll() {
     this.isDropdownOpen = false;
     this.isMenuOpen = false;
+    this.isExtensionDropdownOpen = false;
   }
 
   preventClose(event: MouseEvent) {
-    event.stopPropagation(); // allow interactions inside dropdown
+    event.stopPropagation();
   }
-
-
-
 }

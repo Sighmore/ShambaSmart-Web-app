@@ -1,0 +1,64 @@
+<!-- Crop Doctor Component -->
+<div class="crop-doctor">
+  <h2>Crop Doctor</h2>
+
+  <div class="uploader-card">
+    <label class="upload-area" for="fileInput">
+      <div *ngIf="!imagePreview" class="placeholder">
+        <p>Take a clear photo of the affected plant part</p>
+        <button type="button" class="btn">Choose Photo</button>
+      </div>
+      <img *ngIf="imagePreview" [src]="imagePreview" alt="Preview" class="preview" />
+    </label>
+
+    <input id="fileInput" type="file" accept="image/*" (change)="onFileChange($event)" />
+
+    <div class="controls">
+      <button class="primary" (click)="analyzeImage()" [disabled]="!imagePreview || uploading">Analyze</button>
+      <button class="secondary" (click)="imagePreview = null; diagnosis = null; errorMessage = null" [disabled]="uploading">Clear</button>
+    </div>
+
+    <div class="status">
+      <div *ngIf="uploading" class="spinner">Analyzing…</div>
+      <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+    </div>
+  </div>
+
+  <div *ngIf="diagnosis" class="result-card">
+    <h3>Diagnosis Result</h3>
+    <p><strong>Crop:</strong> {{ diagnosis?.crop }}</p>
+    <p><strong>Issue:</strong> {{ diagnosis?.issue }} <span class="confidence">({{ diagnosis?.confidence | number:'1.0-0' }}%)</span></p>
+    <p *ngIf="diagnosis.partsAffected"><strong>Parts:</strong> {{ diagnosis?.partsAffected }}</p>
+    <p><strong>Severity:</strong> {{ diagnosis?.severity }}</p>
+
+    <div class="recommendations">
+      <h4>Recommendations</h4>
+      <ol>
+        <li *ngFor="let rec of diagnosis.recommendations">{{ rec }}</li>
+      </ol>
+    </div>
+
+    <div class="action-row">
+      <button class="primary" (click)="findNearByAgrovet()">Find Agrovet Nearby</button>
+      <button class="secondary" (click)="shareOnWhatsapp()">Share on WhatsApp</button>
+    </div>
+  </div>
+
+  <div class="history-card" *ngIf="history.length">
+    <div class="history-header">
+      <h4>Past Scans</h4>
+      <button class="link" (click)="clearHistory()">Clear</button>
+    </div>
+    <ul>
+      <li *ngFor="let h of history">
+        <div class="h-row">
+          <div>
+            <strong>{{ h.crop }}</strong> — {{ h.issue }}
+            <div class="muted">{{ h.timestamp | date:'short' }}</div>
+          </div>
+          <div class="muted">{{ h.confidence | number:'1.0-0' }}%</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
