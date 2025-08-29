@@ -1,16 +1,16 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { CartState } from './cart.model';
 
-// 1️⃣ Select the cart feature slice
+//  Select the cart feature slice
 export const selectCartState = createFeatureSelector<CartState>('cart');
 
-// 2️⃣ Select all cart items
+//  Select all cart items
 export const selectCartItems = createSelector(
   selectCartState,
   (state: CartState) => state.items
 );
 
-// 3️⃣ Select total number of items in the cart
+//  Select total number of items in the cart
 export const selectCartCount = createSelector(
   selectCartState,
   (state: CartState) =>
@@ -19,7 +19,7 @@ export const selectCartCount = createSelector(
     }, 0)
 );
 
-// 4️⃣ Select total price of the cart
+//  Select total price of the cart
 export const selectCartTotal = createSelector(
   selectCartState,
   (state: CartState) => state.total
