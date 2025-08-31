@@ -12,9 +12,22 @@
 }
 
 /* Logo */
-.logo img {
-  height: 42px;
-  cursor: pointer;
+.logo {
+  display: flex;
+  align-items: center;
+
+  .logo-full {
+    height: 42px;
+    cursor: pointer;
+  }
+
+  .logo-mobile {
+    display: none;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+  }
 }
 
 /* Nav Links */
@@ -22,7 +35,8 @@
   display: flex;
   gap: 1.5rem;
 
-  a, .dropdown-btn {
+  a,
+  .dropdown-btn {
     color: #fff;
     text-decoration: none;
     font-weight: 500;
@@ -121,8 +135,21 @@
 
 /* Mobile Nav Links */
 @media (max-width: 768px) {
-  .nav-links {
+  /* Switch logos */
+  .logo-full {
     display: none;
+  }
+
+  .logo-mobile {
+    display: inline-block !important;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  .nav-links {
+    display: flex;
     flex-direction: column;
     background-color: rgba(8, 134, 61, 0.97);
     position: absolute;
@@ -130,15 +157,71 @@
     left: 0;
     right: 0;
     padding: 1rem;
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
 
     &.active {
-      display: flex;
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
     }
   }
 }
 
 /* Smooth fade animation */
 @keyframes dropdownFade {
-  from { opacity: 0; transform: translateY(-5px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+.cart {
+  position: relative;
+
+  .cart-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    transition: transform 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      color: #d4f3df; /* lighter green */
+      transform: scale(1.05);
+    }
+  }
+
+  .cart-icon {
+    width: 34px;
+    height: 29px;
+  }
+
+  .cart-count {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background: #054468;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    padding: 0 5px;
+    line-height: 1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  }
+}
+

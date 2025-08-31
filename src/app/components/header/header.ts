@@ -43,12 +43,17 @@ export class Header {
     this.isExtensionDropdownOpen = !this.isExtensionDropdownOpen;
   }
 
-  @HostListener('document:click')
-  closeAll() {
+
+  @HostListener('document:click', ['$event'])
+closeAll(event: MouseEvent) {
+  const target = event.target as HTMLElement;
+  if (!target.closest('.hamburger') && !target.closest('.nav-links')) {
     this.isDropdownOpen = false;
     this.isMenuOpen = false;
     this.isExtensionDropdownOpen = false;
   }
+}
+
 
   preventClose(event: MouseEvent) {
     event.stopPropagation();
