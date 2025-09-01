@@ -4,10 +4,9 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-crop-doctor',
-  standalone: true, // ✅ Required if you're using imports in the component
-  imports: [CommonModule],
+  standalone: true, 
   templateUrl: './crop-doctor.html',
-  styleUrls: ['./crop-doctor.scss'] // ✅ fixed plural
+  styleUrls: ['./crop-doctor.scss'] 
 })
 export class CropDoctor implements OnInit {
   imagePreview: string | null = null; 

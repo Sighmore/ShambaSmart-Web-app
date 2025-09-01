@@ -1,6 +1,10 @@
 <!-- Price Predictor Component -->
 <div class="price-predictor">
   <h2>Crop Price Predictor</h2>
+  <p class="intro">
+    Stay ahead of the market. Enter your crop and location to see today’s price
+    and predictions for the next 7 days based on local market trends.
+  </p>
 
   <div class="form">
     <label>
@@ -19,7 +23,9 @@
       </select>
     </label>
 
-    <button class="primary" (click)="predictPrice()" [disabled]="loading">Predict</button>
+    <button class="primary" (click)="predictPrice()" [disabled]="loading">
+      Predict
+    </button>
   </div>
 
   <div class="status" *ngIf="loading">🔄 Loading predictions...</div>
@@ -27,12 +33,14 @@
 
   <div *ngIf="currentPrice !== null && !loading" class="result-card">
     <h3>{{ selectedCrop }} - {{ selectedLocation }}</h3>
-    <p><strong>Current Price:</strong> KES {{ currentPrice }}</p>
+    <p><strong>Current Price:</strong> <span class="price">KES {{ currentPrice }}</span></p>
 
-    <h4>Predicted Prices (next 7 days)</h4>
+    <h4>Predicted Prices (Next 7 Days)</h4>
     <ul>
       <li *ngFor="let p of predictedPrices">
-        {{ p.date | date:'shortDate' }} → KES {{ p.price }}
+        <span class="date">{{ p.date | date:'EEE, MMM d' }}</span>
+        <span class="arrow">→</span>
+        <span class="predicted">KES {{ p.price }}</span>
       </li>
     </ul>
   </div>

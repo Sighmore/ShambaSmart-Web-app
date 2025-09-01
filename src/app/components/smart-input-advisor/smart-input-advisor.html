@@ -1,6 +1,14 @@
 <!-- Smart Input Advisor Component -->
 <div class="advisor">
   <h2>Smart Input Advisor</h2>
+  
+  <!-- Static description -->
+  <p class="description">
+    The Smart Input Advisor leverages a <strong>fine-tuned locally trained LLM</strong> 
+    enriched with <strong>regional climate and soil data</strong> to provide tailored 
+    crop input recommendations. Farmers get accurate, location-specific advice that 
+    boosts productivity while reducing unnecessary costs.
+  </p>
 
   <form (ngSubmit)="getRecommendations()" #advisorForm="ngForm" class="advisor-form">
     <!-- Crop Selector -->
