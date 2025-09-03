@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CropDoctorService } from '../../services/crop_doctor/crop-doctor-service';
 import { CommonModule } from '@angular/common';
+import { Diagnosis } from './crop-doctor.model';
 
 @Component({
   selector: 'app-crop-doctor',
   standalone: true, 
+  imports: [CommonModule],
   templateUrl: './crop-doctor.html',
   styleUrls: ['./crop-doctor.scss'] 
 })
@@ -23,24 +25,7 @@ export class CropDoctor implements OnInit {
 
   loadHistory() {
     //  Temporary dummy data — replace with API call later
-    this.history = [
-      {
-        crop: 'Maize',
-        issue: 'Leaf Blight',
-        confidence: 85,
-        severity: 'moderate',
-        recommendations: ['Apply fungicide X within 3 days'],
-        timestamp: new Date().toISOString()
-      },
-      {
-        crop: 'Beans',
-        issue: 'Nitrogen Deficiency',
-        confidence: 78,
-        severity: 'mild',
-        recommendations: ['Add nitrogen fertilizer (CAN/Urea)'],
-        timestamp: new Date(Date.now() - 86400000).toISOString() // yesterday
-      }
-    ];
+    this.cropDoctorService.history
   }
 
   //a method to handle file input change event
@@ -86,12 +71,4 @@ export class CropDoctor implements OnInit {
 }
 
 //an interface that models the diagnosis data
-interface Diagnosis {
-  crop: string;
-  issue: string;
-  confidence: number; // 0-100
-  severity: 'mild' | 'moderate' | 'severe' | string;
-  partsAffected?: string;
-  recommendations: string[];
-  timestamp: string; // ISO
-}
+

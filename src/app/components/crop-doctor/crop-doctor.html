@@ -36,10 +36,10 @@
 
   <div *ngIf="diagnosis" class="result-card">
     <h3>Diagnosis Result</h3>
-    <p><strong>Crop:</strong> {{ diagnosis?.crop }}</p>
-    <p><strong>Issue:</strong> {{ diagnosis?.issue }} <span class="confidence">({{ diagnosis?.confidence | number:'1.0-0' }}%)</span></p>
-    <p *ngIf="diagnosis.partsAffected"><strong>Parts:</strong> {{ diagnosis?.partsAffected }}</p>
-    <p><strong>Severity:</strong> {{ diagnosis?.severity }}</p>
+    <p><strong>Crop:</strong> {{ diagnosis.crop }}</p>
+    <p><strong>Issue:</strong> {{ diagnosis.issue }} <span class="confidence">({{ diagnosis.confidence | number:'1.0-0' }}%)</span></p>
+    <p *ngIf="diagnosis.partsAffected"><strong>Parts:</strong> {{ diagnosis.partsAffected }}</p>
+    <p><strong>Severity:</strong> {{ diagnosis.severity }}</p>
 
     <div class="recommendations">
       <h4>Recommendations</h4>
